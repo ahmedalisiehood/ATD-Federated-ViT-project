@@ -1,60 +1,62 @@
-ATD-Federated ViT Project
-Overview
-The ATD Federated Vision Transformer Project (ATD-Federated ViT) is a decentralized, privacy-preserving framework for training multi-modal medical imaging datasets (e.g., CT, PET, X-ray). It leverages AI-to-Data (ATD), a federated learning paradigm, where models are trained locally on data at individual nodes and collaboratively exchange learned parameters to improve global performance. This approach ensures data privacy, scalability, and robustness across distributed datasets.
+# **ATD-Federated ViT Project**
 
-The framework integrates:
+## **Overview**
+The **ATD-Federated Vision Transformer (ViT)** project is a decentralized, privacy-preserving machine learning framework designed for medical imaging. It leverages **multi-head Vision Transformers** and **federated learning principles** to collaboratively train models across distributed datasets, ensuring privacy and scalability. This project supports **CT (DICOM)**, **PET (DICOM)**, and **X-ray (JPG)** modalities, with robust visualization tools like **Grad-CAM** and **t-SNE** for interpretability.
 
-A Multi-Head Vision Transformer (ViT) architecture.
-Support for CT (DICOM), PET (DICOM), and X-ray (JPG) modalities.
-Decentralized ensemble learning for improved classification accuracy.
-Advanced visualization techniques using Grad-CAM and t-SNE.
-Key Features
-Decentralized Federated Learning:
+---
 
-Models are trained locally at each node using a modality-specific ViT head.
-Nodes exchange only the learned weights, ensuring data privacy.
-Multi-Head Vision Transformer (ViT):
+## **Key Features**
+1. **Decentralized Federated Learning**:
+   - Train models locally while ensuring data privacy.
+   - Share only model weights instead of raw data.
 
-Each head specializes in a specific modality (e.g., CT, PET, or X-ray).
-Supports scalable learning by adding new modalities without retraining the entire model.
-AI-to-Data Paradigm:
+2. **Multi-Head Vision Transformer**:
+   - Separate heads for each modality (CT, PET, X-ray).
+   - Ensemble learning for robust classification.
 
-Training happens where the data resides, avoiding raw data transfer between nodes.
-Ensures compliance with strict data protection regulations (e.g., HIPAA).
-Visualization for Interpretability:
+3. **Privacy-Preserving**:
+   - Data never leaves the local node.
+   - Complies with strict data protection standards like HIPAA.
 
-Grad-CAM: Highlights regions of interest contributing to predictions.
-t-SNE: Visualizes feature space separability for different classes.
-Robust Preprocessing Pipelines:
+4. **Visualization Tools**:
+   - **Grad-CAM** for heatmap-based interpretability.
+   - **t-SNE** for feature space analysis.
 
-Prepares and standardizes CT (DICOM), PET (DICOM), and X-ray (JPG) images.
-Applies modality-specific preprocessing for enhanced model performance.
-Fairness and Scalability:
+5. **Scalability and Fairness**:
+   - Dynamic addition of new nodes or modalities without retraining the entire model.
+   - Weighted aggregation ensures fairness across nodes.
 
-Weighted aggregation ensures equitable learning across nodes with varying dataset sizes.
-Dynamic node addition allows seamless integration of new datasets or modalities.
-System Architecture
-The project includes the following components:
+---
 
-Local Training:
+## **Supported Modalities**
+- **CT (DICOM)**: Preprocessed for structural abnormalities.
+- **PET (DICOM)**: Focused on metabolic activity.
+- **X-ray (JPG)**: Evaluates structural and radiological patterns.
 
-Each node trains one modality-specific ViT head on its local dataset.
-Training minimizes a cross-entropy loss function, retaining modality-specific features.
-Weight Exchange:
+---
 
-Trained weights from all nodes are exchanged securely in a decentralized manner.
-Updates are integrated using weighted averaging, reducing bias and improving generalization.
-Ensemble Learning:
+## **System Architecture**
+1. **Local Training**:
+   - Each node trains one modality-specific ViT head using local data.
+   - Minimized cross-entropy loss retains modality-specific features.
 
-Predictions from all heads are combined through ensemble learning for final classification.
-Enhances robustness by leveraging diverse features learned across modalities.
-Visualization:
+2. **Decentralized Weight Exchange**:
+   - Nodes exchange trained weights securely without requiring a central server.
+   - Weighted averaging improves global generalization.
 
-Grad-CAM heatmaps for model interpretability.
-t-SNE plots to analyze class separability in feature space.
-Supported Modalities
-The framework supports the following medical imaging modalities:
+3. **Ensemble Learning**:
+   - Predictions from all heads are combined for final classification.
+   - Enhances robustness and reduces bias.
 
-CT (DICOM): Processed for structural abnormalities.
-PET (DICOM): Focused on metabolic activity.
-X-ray (JPG): Evaluates chest and skeletal features.
+4. **Visualization**:
+   - **Grad-CAM** heatmaps highlight regions contributing to predictions.
+   - **t-SNE** visualizes class separability in feature space.
+
+---
+
+## **Installation**
+
+### **1. Clone the Repository**
+```bash
+git clone https://github.com/ahmedalisiehood/ATD-Federated-ViT-project.git
+cd ATD-Federated-ViT-project
